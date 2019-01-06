@@ -10,7 +10,7 @@ REPLY_TEMPLATE = """[I found a higher-quality version of this track!](https://ww
 
 ----
 
-^^I ^^am ^^a ^^bot, ^^and ^^this ^^action ^^was ^^performed ^^automatically ^^| ^[^Source](https://github.com/ScottBrenner/hqtrackbot) ^^| [^^Add ^^to ^^your ^^subreddit](https://www.reddit.com/message/compose?to=Scottstimo&subject=hqtrackbot&message=)"""
+^^I ^^am ^^a ^^bot ^^and ^^this ^^action ^^was ^^performed ^^automatically ^^| ^[^Source](https://github.com/ScottBrenner/hqtrackbot) ^^| [^^Add ^^to ^^your ^^subreddit](https://www.reddit.com/message/compose?to=Scottstimo&subject=hqtrackbot&message=)"""
 
 def main():
     reddit = praw.Reddit(user_agent='hqtrackbot (by /u/scottstimo)',
@@ -37,6 +37,8 @@ def process_submission(submission):
     if(youtube.youtube_search(args)):
         url_title = quote_plus(youtube.youtube_search(args))
         reply_text = REPLY_TEMPLATE.format(url_title)
+        if (submission.url in reply_text):
+            return
         print('Replying to: {}'.format(submission.permalink))
         print(reply_text)
         submission.reply(reply_text)    
