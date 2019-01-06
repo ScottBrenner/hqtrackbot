@@ -6,7 +6,11 @@ import youtube
 import praw
 import os
 
-REPLY_TEMPLATE = '[I found a higher-quality version of this track!](https://www.youtube.com/watch?v={})'
+REPLY_TEMPLATE = """[I found a higher-quality version of this track!](https://www.youtube.com/watch?v={})
+
+----
+
+^^I ^^am ^^a ^^bot, ^^and ^^this ^^action ^^was ^^performed ^^automatically ^^| ^[^Source](https://github.com/ScottBrenner/hqtrackbot) ^^| [^^Add ^^to ^^your ^^subreddit](https://www.reddit.com/message/compose?to=Scottstimo&subject=hqtrackbot&message=)"""
 
 def main():
     reddit = praw.Reddit(user_agent='hqtrackbot (by /u/scottstimo)',
