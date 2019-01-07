@@ -23,6 +23,6 @@ action "GitHub Action for Docker-1" {
 action "GitHub Action for AWS" {
   uses = "actions/aws/cli@8d31870"
   needs = ["GitHub Action for Docker-1"]
-  args = "ecs update-service --cluster hqtrackbot --service hqtrackbot --force-new-deployment"
+  args = "--region us-west-1 ecs update-service --cluster hqtrackbot --service hqtrackbot --force-new-deployment"
   secrets = ["AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"]
 }
