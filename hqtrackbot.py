@@ -23,6 +23,12 @@ def main():
 
 
 def process_submission(submission):
+    # Ignore submissions that have already been replied to
+    submission.comments.replace_more(limit=0)
+    for top_level_comment in submission.comments:
+        if("I found a higher-quality version of this track!" in top_level_comment.body):
+            return
+    
     # Ignore non-YouTube submissions (for now)
     youtube_match_pattern = 'https://www.youtube.com/*'    
     youtu_match_pattern = 'https://youtu.be/*'
