@@ -8,7 +8,7 @@ import os
 import time
 
 START_TIME = time.time()
-REPLY_TEMPLATE = """[I found a higher-quality version of this track!](https://www.youtube.com/watch?v={})
+REPLY_TEMPLATE = """[I found a higher-quality upload of this track!](https://www.youtube.com/watch?v={})
 
 ----
 
@@ -41,10 +41,9 @@ def process_submission(submission):
     if(youtube.youtube_search(args)):
         url_title = quote_plus(youtube.youtube_search(args))
         reply_text = REPLY_TEMPLATE.format(url_title)
-        if (submission.url in reply_text):
+        if (url_title in submission.url):
             return
         print('Replying to: {}'.format(submission.permalink))
-        print(reply_text)
         submission.reply(reply_text)    
 
 
