@@ -1,4 +1,4 @@
-workflow "New workflow" {
+workflow "Build and deploy on push" {
   on = "push"
   resolves = ["GitHub Action for AWS"]
 }
@@ -23,6 +23,6 @@ action "GitHub Action for Docker-1" {
 action "GitHub Action for AWS" {
   uses = "actions/aws/cli@8d31870"
   needs = ["GitHub Action for Docker-1"]
-  args = "ecs update-service --service hqtrackbot --force-new-deployment"
+  args = "ecs update-service --cluster hqtrackbot --service hqtrackbot --force-new-deployment"
   secrets = ["AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"]
 }
