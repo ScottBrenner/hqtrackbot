@@ -31,7 +31,7 @@ def process_submission(submission):
         return
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('--q', help='Search term', default=re.sub(r'([\(\[]).*?([\)\]])', '', submission.title))
+    parser.add_argument('--q', help='Search term', default=re.sub(r'([\[]).*?([\]])', '', submission.title))
     parser.add_argument('--max-results', help='Max results', default=10)
     args = parser.parse_args()
     if(youtube.youtube_search(args)):
