@@ -1,28 +1,37 @@
 workflow "Build and deploy on push" {
   on = "push"
-  resolves = ["GitHub Action for AWS"]
+  resolves = [
+    "New ECS Deployment",
+  ]
 }
 
-action "Docker Registry" {
+action "Docker Registry Login" {
   uses = "actions/docker/login@76ff57a"
   secrets = ["DOCKER_USERNAME", "DOCKER_PASSWORD"]
 }
 
-action "GitHub Action for Docker" {
+action "Docker Build" {
   uses = "actions/docker/cli@76ff57a"
-  needs = ["Docker Registry"]
+  needs = ["Docker Registry Login"]
   args = "build -t scottbrenner/hqtrackbot ."
 }
 
-action "GitHub Action for Docker-1" {
+action "Docker Push" {
   uses = "actions/docker/cli@76ff57a"
-  needs = ["GitHub Action for Docker"]
+  needs = ["Docker Build"]
   args = "push scottbrenner/hqtrackbot:latest"
 }
 
-action "GitHub Action for AWS" {
+action "Create ECS Task Definition" {
   uses = "actions/aws/cli@8d31870"
-  needs = ["GitHub Action for Docker-1"]
-  args = "--region us-west-1 ecs update-service --cluster hqtrackbot --service hqtrackbot --force-new-deployment"
+  needs = ["Docker Push"]
+  args = "--region us-west-1 ecs register-task-definition --family hqtrackbot"
+  secrets = ["AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"]
+}
+
+action "New ECS Deployment" {
+  uses = "actions/aws/cli@8d31870"
+  needs = ["Create ECS Task Definition"]
+  args = "--region us-west-1 ecs update-service --cluster hqtrackbot --service hqtrackbot --task-definition hqtrackbot:latest --force-new-deployment"
   secrets = ["AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"]
 }
