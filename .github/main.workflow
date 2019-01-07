@@ -1,10 +1,3 @@
-workflow "Build and deploy on push" {
-  on = "push"
-  resolves = [
-    "New ECS Deployment",
-  ]
-}
-
 action "Docker Registry Login" {
   uses = "actions/docker/login@76ff57a"
   secrets = ["DOCKER_USERNAME", "DOCKER_PASSWORD"]
