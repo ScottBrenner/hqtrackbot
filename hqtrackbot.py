@@ -5,6 +5,9 @@ import argparse
 import youtube
 import praw
 import os
+import time
+
+START_TIME = time.time()
 
 REPLY_TEMPLATE = """[I found a higher-quality version of this track!](https://www.youtube.com/watch?v={})
 
@@ -19,16 +22,11 @@ def main():
 
     subreddit = reddit.subreddit(os.environ['REDDIT_SUBREDDITS'])
     for submission in subreddit.stream.submissions():
-        process_submission(submission)
+        if submission.created_utc > START_TIME:
+            process_submission(submission)             
 
 
 def process_submission(submission):
-    # Ignore submissions that have already been replied to
-    submission.comments.replace_more(limit=0)
-    for top_level_comment in submission.comments:
-        if("I found a higher-quality version of this track!" in top_level_comment.body):
-            return
-    
     # Ignore non-YouTube submissions (for now)
     youtube_match_pattern = 'https://www.youtube.com/*'    
     youtu_match_pattern = 'https://youtu.be/*'
