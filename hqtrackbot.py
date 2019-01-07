@@ -8,7 +8,6 @@ import os
 import time
 
 START_TIME = time.time()
-
 REPLY_TEMPLATE = """[I found a higher-quality version of this track!](https://www.youtube.com/watch?v={})
 
 ----
@@ -22,8 +21,9 @@ def main():
 
     subreddit = reddit.subreddit(os.environ['REDDIT_SUBREDDITS'])
     for submission in subreddit.stream.submissions():
-        if submission.created_utc > START_TIME:
-            process_submission(submission)             
+        if submission.created_utc < START_TIME:
+            continue
+        process_submission(submission)    
 
 
 def process_submission(submission):
@@ -36,7 +36,7 @@ def process_submission(submission):
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--q', help='Search term', default=re.sub(r'([\[]).*?([\]])', '', submission.title))
-    parser.add_argument('--max-results', help='Max results', default=10)
+    parser.add_argument('--max-results', help='Max results', default=20)
     args = parser.parse_args()
     if(youtube.youtube_search(args)):
         url_title = quote_plus(youtube.youtube_search(args))
