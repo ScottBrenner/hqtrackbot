@@ -12,7 +12,7 @@ REPLY_TEMPLATE = """[I found a higher-quality version of this track!](https://ww
 
 ----
 
-^^I ^^am ^^a ^^bot ^^and ^^this ^^action ^^was ^^performed ^^automatically ^^| ^[^Source](https://github.com/ScottBrenner/hqtrackbot) ^^| [^^Add ^^to ^^your ^^subreddit](https://www.reddit.com/message/compose?to=Scottstimo&subject=hqtrackbot&message=)"""
+^^I ^^am ^^a ^^bot ^^and ^^this ^^action ^^was ^^performed ^^automatically ^^| ^[^Source](https://github.com/ScottBrenner/hqtrackbot) ^^| [^^Add ^^me ^^to ^^a ^^subreddit!](https://www.reddit.com/message/compose?to=Scottstimo&subject=hqtrackbot&message=)"""
 
 def main():
     reddit = praw.Reddit(user_agent='hqtrackbot (by /u/scottstimo)',
