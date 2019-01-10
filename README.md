@@ -1,5 +1,15 @@
 # hqtrackbot
-[/u/hqtrackbot](https://old.reddit.com/user/hqtrackbot) - a reddit bot that finds higher-quality versions of submitted tracks.
+[/u/hqtrackbot](https://old.reddit.com/user/hqtrackbot) - a reddit bot that finds higher-quality YouTube uploads of submitted tracks.
+
+Currently watching subreddits:
+- /r/hqtrackbot
+- /r/music
+- /r/techno
+- /r/electronicmusic
+
+Currently banned from subreddits:
+- /r/trance
+- /r/listentothis
 
 ## Usage
 Create and add values:
