@@ -18,7 +18,7 @@ def youtube_search(options):
   search_response = youtube.search().list(
     q=options.q,
     part='id,snippet',
-    maxResults=20
+    maxResults=10
 ).execute()
 
   # Display the matching videos
@@ -30,7 +30,7 @@ def youtube_search(options):
 if __name__ == '__main__':
   parser = argparse.ArgumentParser()
   parser.add_argument('--q', help='Search term', default='Google')
-  parser.add_argument('--max-results', help='Max results', default=20)
+  parser.add_argument('--max-results', help='Max results', default=10)
   args = parser.parse_args()
 
   try:
