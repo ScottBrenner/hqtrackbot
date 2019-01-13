@@ -4,8 +4,13 @@
 Currently watching subreddits:
 - /r/hqtrackbot
 - /r/music
-- /r/techno
 - /r/electronicmusic
+- /r/techno
+- /r/proghouse
+- /r/liquiddubstep
+- /r/house
+- /r/tech_house
+- /r/OldSkoolDance
 
 Currently banned from subreddits:
 - /r/trance
