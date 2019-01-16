@@ -6,6 +6,9 @@ import youtube
 import praw
 import os
 import time
+from datetime import datetime
+import plotly
+import plotly.graph_objs as go
 
 START_TIME = time.time()
 REPLY_TEMPLATE = """[I found a higher-quality upload of this track!](https://www.youtube.com/watch?v={})
@@ -23,7 +26,16 @@ def main():
     for submission in subreddit.stream.submissions():
         if submission.created_utc < START_TIME:
             continue
-        process_submission(submission)    
+        process_submission(submission)
+        # Plotly graphing: https://plot.ly/~ScottBrenner/17
+        now = datetime.now()
+        plotly.tools.set_credentials_file(username=os.environ['PLOTLY_USERNAME'], api_key=os.environ['PLOTLY_API_KEY'])
+        fig = plotly.plotly.get_figure("https://plot.ly/~ScottBrenner/17")
+        if now.strftime("%Y-%m-%d") not in fig['data'][0]['x']:
+            data = [go.Bar(x=[now.strftime("%Y-%m-%d")], y=[1])]
+        else:
+            data = [go.Bar(x=[now.strftime("%Y-%m-%d")], y=[fig['data'][0]['y'][-1]+1])]
+        plotly.plotly.plot(data, filename='hqtrackbot', fileopt='extend')
 
 
 def process_submission(submission):
