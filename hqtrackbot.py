@@ -30,7 +30,7 @@ def main():
             continue
         process_submission(submission)
         replies += 1
-        if replies == 100:
+        if replies == 10:
             # Plotly graphing: https://plot.ly/~ScottBrenner/17
             now = datetime.now()       
             fig = plotly.plotly.get_figure("https://plot.ly/~ScottBrenner/17")

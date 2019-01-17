@@ -2,15 +2,7 @@
 [/u/hqtrackbot](https://old.reddit.com/user/hqtrackbot) - a reddit bot that finds higher-quality YouTube uploads of submitted tracks.
 
 Currently watching subreddits:
-- /r/hqtrackbot
-- /r/music
-- /r/electronicmusic
-- /r/techno
-- /r/proghouse
-- /r/liquiddubstep
-- /r/house
-- /r/tech_house
-- /r/OldSkoolDance
+https://www.reddit.com/r/Music/wiki/musicsubreddits#wiki_electronic_music
 
 Currently banned from subreddits:
 - /r/trance
