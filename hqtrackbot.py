@@ -25,6 +25,7 @@ def main():
             continue
         process_submission(submission)
 
+
 def process_submission(submission):
     # Ignore non-YouTube submissions (for now)
     youtube_match_pattern = 'https://www.youtube.com/*'    
