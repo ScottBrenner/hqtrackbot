@@ -23,6 +23,8 @@ def youtube_search(options):
 
   # Display the matching videos
   for search_result in search_response.get('items', []):
+    if(search_result['snippet']['channelTitle'] in options.q):
+        return
     if("Provided to YouTube by" in search_result['snippet']['description'] or "under exclusive license to" in search_result['snippet']['description']):
         return(search_result['id']['videoId'])
    
