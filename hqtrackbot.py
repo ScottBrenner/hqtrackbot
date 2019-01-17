@@ -6,6 +6,8 @@ import youtube
 import praw
 import os
 import time
+import boto3
+from fluentmetrics import FluentMetric
 
 START_TIME = time.time()
 REPLY_TEMPLATE = """[I found a higher-quality upload of this track!](https://www.youtube.com/watch?v={})
@@ -13,6 +15,15 @@ REPLY_TEMPLATE = """[I found a higher-quality upload of this track!](https://www
 ----
 
 ^^Incorrect? ^^Comments ^^with ^^score ^^below ^^0 ^^will ^^be ^^deleted ^^| ^[^Source](https://github.com/ScottBrenner/hqtrackbot) ^^| [^^Add ^^me ^^to ^^a ^^subreddit!](https://www.reddit.com/message/compose?to=Scottstimo&subject=hqtrackbot&message=)"""
+
+# boto3 & FluentMetric setup
+client = boto3.client(
+  'cloudwatch',
+  'us-west-1',
+  aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
+  aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY']
+)
+m = FluentMetric(client).with_namespace('hqtrackbot').with_stream_id(os.environ['AWS_METRIC_STREAM_ID'])
 
 def main():
     reddit = praw.Reddit(user_agent='hqtrackbot (by /u/scottstimo)',
@@ -24,6 +35,7 @@ def main():
         if submission.created_utc < START_TIME:
             continue
         process_submission(submission)
+        m.count(MetricName='submission_processed', Value='0.5')
 
 
 def process_submission(submission):
@@ -44,7 +56,9 @@ def process_submission(submission):
         if (url_title in submission.url):
             return
         print('Replying to: {}'.format(submission.permalink))
-        submission.reply(reply_text)    
+        submission.reply(reply_text)
+        m.count(MetricName='submission_replies', Value='0.5')
+        m.count(MetricName="r_"+str(submission.subreddit), Value='0.5')
 
 
 if __name__ == '__main__':
