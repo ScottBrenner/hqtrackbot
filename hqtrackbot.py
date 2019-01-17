@@ -10,8 +10,7 @@ from datetime import datetime
 import plotly
 import plotly.graph_objs as go
 
-plotly.tools.set_credentials_file(username=os.environ['PLOTLY_USERNAME'], api_key=os.environ['PLOTLY_API_KEY'])
-replies = 0
+REPLIES = 0
 START_TIME = time.time()
 REPLY_TEMPLATE = """[I found a higher-quality upload of this track!](https://www.youtube.com/watch?v={})
 
@@ -29,17 +28,18 @@ def main():
         if submission.created_utc < START_TIME:
             continue
         process_submission(submission)
-        replies += 1
-        if replies == 10:
+        REPLIES += 1
+        if REPLIES == 10:
             # Plotly graphing: https://plot.ly/~ScottBrenner/17
+            plotly.tools.set_credentials_file(username=os.environ['PLOTLY_USERNAME'], api_key=os.environ['PLOTLY_API_KEY'])
             now = datetime.now()       
             fig = plotly.plotly.get_figure("https://plot.ly/~ScottBrenner/17")
             if now.strftime("%Y-%m-%d") not in fig['data'][0]['x']:
                 data = [go.Bar(x=[now.strftime("%Y-%m-%d")], y=[1])]
             else:
-                data = [go.Bar(x=[now.strftime("%Y-%m-%d")], y=[fig['data'][0]['y'][-1]+replies])]
+                data = [go.Bar(x=[now.strftime("%Y-%m-%d")], y=[fig['data'][0]['y'][-1]+REPLIES])]
             plotly.plotly.plot(data, filename='hqtrackbot', fileopt='extend')
-            replies = 0
+            REPLIES = 0
 
 
 def process_submission(submission):
