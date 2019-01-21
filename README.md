@@ -5,5 +5,7 @@ Currently watching subreddits:
 https://www.reddit.com/r/Music/wiki/musicsubreddits#wiki_electronic_music
 
 Currently banned from subreddits:
-- /r/trance
+- /r/deephouse
+- /r/experimentalmusic
 - /r/listentothis
+- /r/trance
