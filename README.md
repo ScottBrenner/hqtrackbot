@@ -6,8 +6,9 @@ https://www.reddit.com/r/Music/wiki/musicsubreddits#wiki_electronic_music
 
 Currently banned from subreddits:
 - /r/deephouse
+- /r/Electropop
 - /r/experimentalmusic
 - /r/House
-- /r/Hardstyle
+- /r/hardstyle
 - /r/listentothis
 - /r/trance
