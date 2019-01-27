@@ -11,4 +11,5 @@ Currently banned from subreddits:
 - /r/House
 - /r/hardstyle
 - /r/listentothis
+- /r/melodichouse
 - /r/trance
