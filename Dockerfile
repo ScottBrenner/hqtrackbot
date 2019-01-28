@@ -6,6 +6,7 @@ COPY requirements.txt ./
 
 RUN pip install -r requirements.txt
 
-COPY . .
+COPY hqtrackbot.py ./
+COPY youtube.py ./
 
 CMD [ "python", "-u", "./hqtrackbot.py" ]
