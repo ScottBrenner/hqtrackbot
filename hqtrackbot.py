@@ -14,7 +14,7 @@ REPLY_TEMPLATE = """[I found a higher-quality upload of this track!](https://www
 
 ----
 
-^^Click ^^the ^^link ^^to ^^view ^^"unavailable" ^^videos! ^^Incorrect? ^^Comments ^^with ^^score ^^below ^^0 ^^will ^^be ^^deleted ^^| ^[^Source](https://github.com/ScottBrenner/hqtrackbot) ^^| [^^Add ^^me ^^to ^^a ^^subreddit!](https://www.reddit.com/message/compose?to=Scottstimo&subject=hqtrackbot&message=)"""
+^^Click ^^the ^^link ^^to ^^view ^^"unavailable" ^^videos! ^^| ^^Incorrect? ^^Comments ^^with ^^score ^^below ^^0 ^^will ^^be ^^deleted ^^| ^[^Source](https://github.com/ScottBrenner/hqtrackbot) ^^| [^^Add ^^me ^^to ^^a ^^subreddit!](https://www.reddit.com/message/compose?to=Scottstimo&subject=hqtrackbot&message=)"""
 
 # boto3 & FluentMetric setup
 client = boto3.client(
