@@ -8,6 +8,7 @@ Currently banned from subreddits:
 - /r/deephouse
 - /r/Electropop
 - /r/experimentalmusic
+- /r/grime
 - /r/House
 - /r/hardstyle
 - /r/listentothis
