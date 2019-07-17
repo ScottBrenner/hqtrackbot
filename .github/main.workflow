@@ -20,9 +20,9 @@ action "Docker Push" {
   args = "push scottbrenner/hqtrackbot:latest"
 }
 
-action "GitHub Action for AWS" {
-  uses = "actions/aws/cli@master"
+action "CDK Synth" {
+  uses = "scottbrenner/aws-cdk/cdk@master"
   needs = ["Docker Push"]
-  args = "--region us-west-1 ecs update-service --cluster hqtrackbot --service hqtrackbot --task-definition hqtrackbot --force-new-deployment"
+  args = "synth"
   secrets = ["AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"]
 }
