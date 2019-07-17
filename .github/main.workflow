@@ -1,6 +1,6 @@
 workflow "Build and deploy on push" {
   on = "push"
-  resolves = ["GitHub Action for AWS"]
+  resolves = ["CDK Synth"]
 }
 
 action "Docker Registry Login" {
