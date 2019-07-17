@@ -21,7 +21,7 @@ action "Docker Push" {
 }
 
 action "CDK Synth" {
-  uses = "scottbrenner/aws-cdk/cdk@master"
+  uses = "docker://scottbrenner/aws-cdk"
   needs = ["Docker Push"]
   args = "synth"
   secrets = ["AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"]
