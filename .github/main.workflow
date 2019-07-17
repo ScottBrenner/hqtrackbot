@@ -23,6 +23,6 @@ action "Docker Push" {
 action "CDK Synth" {
   uses = "docker://scottbrenner/aws-cdk:master"
   needs = ["Docker Push"]
-  args = "synth"
+  args = "--app python3 app.py cdk-fargate/synth"
   secrets = ["AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"]
 }
