@@ -44,7 +44,10 @@ def process_submission(submission):
         if (url_title in submission.url):
             return
         print('Replying to: {}'.format(submission.permalink))
-        submission.reply(reply_text)    
+        try:
+            submission.reply(reply_text)
+        except Exception as exc:
+            print(exc)
 
 
 if __name__ == '__main__':
