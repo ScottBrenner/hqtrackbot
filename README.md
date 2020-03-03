@@ -2,17 +2,74 @@
 [/u/hqtrackbot](https://old.reddit.com/user/hqtrackbot) - a reddit bot that finds higher-quality YouTube uploads of submitted tracks.
 
 Currently watching subreddits:
-https://www.reddit.com/r/Music/wiki/musicsubreddits#wiki_electronic_music
+- /r/AfroBashment
+- /r/ambientmusic
+- /r/AtmosphericDnB
+- /r/BigBeat
+- /r/boogiemusic
+- /r/chicagohouse
+- /r/chillout
+- /r/Chipbreak
+- /r/Chiptunes
+- /r/complextro
+- /r/cxd
+- /r/darkstep
+- /r/DubStep
+- /r/EBM
+- /r/electrohiphop
+- /r/electrohouse
+- /r/ElectronicBlues
+- /r/electronicdancemusic
+- /r/ElectronicJazz
+- /r/electronicmagic
+- /r/electronicmusic
+- /r/electroswing
+- /r/fidget
+- /r/filth
+- /r/frenchelectro
+- /r/frenchhouse
+- /r/funkhouse
+- /r/fusiondancemusic
+- /r/futurebeats
+- /r/FutureGarage
+- /r/futuresynth
+- /r/gabber
+- /r/glitch
+- /r/glitchop
+- /r/happyhardcore
+- /r/hardhouse
+- /r/house
+- /r/hqtrackbot
+- /r/idm
+- /r/industrialmusic
+- /r/ItaloDisco
+- /r/latinhouse
+- /r/liquiddubstep
+- /r/mashups
+- /r/mixes
+- /r/moombahcore
+- /r/nightstep
+- /r/OldSkoolDance
+- /r/OldskoolRave
+- /r/Outrun
+- /r/partymusic
+- /r/plunderphonics
+- /r/PsyBreaks
+- /r/psytrance
+- /r/purplemusic
+- /r/raggajungle
+- /r/SirBerryDinglesDiscog
+- /r/skweee
+- /r/swinghouse
+- /r/tech_house
+- /r/techno
+- /r/tranceandbas
+- /r/trap
+- /r/tribalbeats
+- /r/TropicalHouse
+- /r/ukfunky
+- /r/witchhouse
+- /r/wuuB
 
 Currently banned from subreddits:
-- /r/deephouse
-- /r/EDM
-- /r/Electropop
-- /r/electronicmusic
-- /r/experimentalmusic
-- /r/grime
-- /r/House
-- /r/hardstyle
-- /r/listentothis
-- /r/melodichouse
-- /r/trance
+- _too many_
