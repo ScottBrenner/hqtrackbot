@@ -57,4 +57,4 @@ jobs:
     - name: Deploy to Amazon ECS task definition
       run: |
         pip install boto3
-        aws --region us-west-1 ecs update-service --cluster hqtrackbot_ecs_cluster --service hqtrackbot-ecs-service --task-definition hqtrackbot-task_defition --force-new-deployment
+        aws --region us-west-1 ecs update-service --cluster hqtrackbot_ecs_cluster --service hqtrackbot-ecs-service --task-definition hqtrackbot-task_definition --force-new-deployment
