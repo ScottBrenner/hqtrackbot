@@ -1,4 +1,4 @@
-# This workflow will build and push a new container image to Amazon ECR,
+# This workflow will build and push a new container image to Docker Hub,
 # and then will deploy a new task definition to Amazon ECS, on every push
 # to the master branch.
 
@@ -57,4 +57,4 @@ jobs:
     - name: Deploy to Amazon ECS task definition
       run: |
         pip install boto3
-        aws --region us-west-1 ecs update-service --cluster hqtrackbot --service hqtrackbot --task-definition hqtrackbot --force-new-deployment
+        aws --region us-west-1 ecs update-service --cluster hqtrackbot_ecs_cluster --service hqtrackbot-ecs-service --task-definition hqtrackbot-task_defition --force-new-deployment
