@@ -46,7 +46,6 @@ Currently watching subreddits:
 - /r/latinhouse
 - /r/liquiddubstep
 - /r/mashups
-- /r/mixes
 - /r/moombahcore
 - /r/nightstep
 - /r/OldSkoolDance
