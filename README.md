@@ -22,7 +22,6 @@ Currently watching subreddits:
 - /r/electronicdancemusic
 - /r/ElectronicJazz
 - /r/electronicmagic
-- /r/electronicmusic
 - /r/electroswing
 - /r/fidget
 - /r/filth
@@ -38,7 +37,6 @@ Currently watching subreddits:
 - /r/glitchop
 - /r/happyhardcore
 - /r/hardhouse
-- /r/house
 - /r/hqtrackbot
 - /r/idm
 - /r/industrialmusic
