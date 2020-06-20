@@ -6,8 +6,8 @@ Notwithstanding any other terms, you may reverse engineer this software to the e
 
 ## YouTube Terms of Service (ToS)
 
-https://www.youtube.com/t/terms
+[YouTube Terms of Service (ToS)](https://www.youtube.com/t/terms)
 
 ## Google Privacy Policy
 
-https://policies.google.com/privacy
+[Google Privacy Policy](https://policies.google.com/privacy)
