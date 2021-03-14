@@ -8,7 +8,7 @@ import os
 import time
 
 START_TIME = time.time()
-REPLY_TEMPLATE = """[I found a higher-quality upload of this track!](https://www.youtube.com/watch?v={})
+REPLY_TEMPLATE = """[I found a high-quality upload of this track!](https://www.youtube.com/watch?v={})
 
 ----
 
