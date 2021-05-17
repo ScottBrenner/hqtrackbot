@@ -16,6 +16,9 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
 
     steps:
     - name: Checkout
@@ -29,30 +32,27 @@ jobs:
         aws-region: us-west-1
 
     - name: Build image
-      run: docker build . --file Dockerfile --tag image
+      run: docker build . --file Dockerfile --tag $IMAGE_NAME
 
     - name: Log into registry
-      run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u scottbrenner --password-stdin
+      run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
     - name: Push image
       run: |
-        IMAGE_ID=scottbrenner/$IMAGE_NAME
+        IMAGE_ID=ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME
 
+        # Change all uppercase to lowercase
+        IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
         # Strip git ref prefix from version
         VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
-
         # Strip "v" prefix from tag name
         [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
-
         # Use Docker `latest` tag convention
         [ "$VERSION" == "master" ] && VERSION=latest
-
         echo IMAGE_ID=$IMAGE_ID
         echo VERSION=$VERSION
-
-        docker tag image $IMAGE_ID:$VERSION
+        docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
         docker push $IMAGE_ID:$VERSION
-        echo "::set-output name=image::$IMAGE_ID:$VERSION"
 
     - name: Deploy to Amazon ECS task definition
       run: |
